@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+html {
+    background: rgb(34,193,195);
+    background: linear-gradient(90deg, rgba(34,193,195,1) 0%, rgba(41,205,184,1) 18%, rgba(37,254,98,1) 40%, rgba(205,234,82,1) 58%, rgba(215,133,227,1) 79%, rgba(253,187,45,1) 100%); 
+    background-size: 400%;
+    background-position: left;
+    animation: moveOn 5s infinite alternate;
+}
+@keyframes moveOn {
+    0% {
+        background-position: left;
+    }
+
+    100% {
+        background-position: right;
+    }
+}
+
+.container {
+    width: 542px;
+    min-height: 100px;
+    margin: 100px auto;
+    background: #272527;
+    padding: 23px 30px;
+    box-shadow: 0px 0px 20px 5px black;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    background-color: transparent;
+}
+
+input[type='text'] {
+    flex-basis: 80%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #833ab4;
+    outline: none;
+    color: #833ab4;
+}
+
+button {
+    padding: 0 10px;
+    background-color: #FFFFFF;
+    border: none;
+    color: #833ab4;
+    position: relative;
+    z-index: 1;
+    font-weight: 900;
+    transition: all .5s;
+}
+
+button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #833ab4;
+    z-index: -1;
+    transition: all .5s;
+}
+button:hover:before{
+    width: 100%;
+}
+
+button:hover {
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
+
+.content {
+    margin: 27px 0;
+}
+
+.task {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFFFFF;
+    /* border-bottom: 1px solid #A4A4A4; */
+    position: relative;
+    z-index: 0;
+}
+
+.task::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: currentColor;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+    z-index: -1;
+    transition: transform .25s;
+}
+.task:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+.task-name[isComplete=true] {
+    text-decoration: line-through;
+    color: #A4A4A4;
+}
+
+.task p:hover {
+    cursor: pointer;
+}
+.task i {
+    color: #A4A4A4;
+    margin-left: 15px;
+}
+
+.task i:hover {
+    cursor: pointer;
+    color: #833ab4;
+}
+
+.icon[editing=true] {
+    visibility: hidden;
+}
+
+.task-count {
+    font-size: 13px;
+    color: #A4A4A4;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
